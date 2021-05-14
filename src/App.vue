@@ -1,29 +1,57 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <header>
+    <router-link to="/">
+      <h1><span>Movies</span>World</h1>
+    </router-link>
+    <Navbar/>
+  </header>
+  <main>
+    <router-view/>
+  </main>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import Navbar from './components/Navbar';
+
+export default {
+  name:'app',
+  components:{
+    Navbar
+  }
 }
+</script>
 
-#nav {
-  padding: 30px;
+<style lang="scss">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fire Sans', sans-serif;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  &::selection {
+    background: transparentize(#42B893, 0.5);
+  }
+}
+body{
+  background-color: lightcyan;
+}
+a{
+  text-decoration: none;
+}
+header{
+  display: flex;
+  align-items: center;
+  //justify-content: center;
+  padding: 14px 40px;
+  background-color: #2C3D4E;
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.1);
 
-    &.router-link-exact-active {
-      color: #42b983;
+  h1{
+    color: #FFF;
+    font-size: 35px;
+
+    span{
+      color: #42B883;
     }
   }
 }
